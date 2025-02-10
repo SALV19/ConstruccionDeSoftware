@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Santiago Alducin Villaseñor</title>
+    <style>
+      ol li {
+        margin-top: 0.5rem;
+      }
+      ul li::before {
+        content: "- ";
+      }
+      ul li p {
+        margin-left: 1em;
+      }
+    </style>
+  </head>
+  <body style="margin: 1rem">
+    <header>
+      <h1 style="text-decoration: underline">Santiago Alducin Villaseñor</h1>
+      <h2>A01707122</h2>
+      <h3>santialducin@gmail.com</h3>
+    </header>
+
+    <main>
+      <h1>Preguntas:</h1>
+      <ol>
+        <li>¿Cuál es la diferencia entre Internet y la World Wide Web?</li>
+        <blockquote>
+          "Internet es una inmensa red de computadoras alrededor de todo el
+          mundo conectadas entre sí. En cambio, la web (la World Wide Web) es
+          una enorme colección de páginas que se asienta sobreesa red de
+          computadoras. Así que cuando navegas a través de tu celular o
+          computadora usas internet para acceder a la web."
+        </blockquote>
+        <cite> BBC News, 2019 </cite>
+        <li>¿Cuáles son las partes de un URL?</li>
+        <a
+          >protocolo://subdominio.dominio.extensión_de_dominio/ruta&parámetro=valor</a
+        >
+        <cite>https://concepto.de/url/</cite>
+        <li>
+          ¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT,
+          PATCH, DELETE?
+        </li>
+        <div>
+          <ul>
+            <li>
+              GET:
+              <p>
+                Protocolo simple poco seguro que permite consultar información
+              </p>
+            </li>
+            <li>
+              HEAD:
+              <p>
+                Consulta similar al método GET pero que sin el cuerpo de la
+                respuesta.
+              </p>
+            </li>
+            <li>
+              POST:
+              <p>Permite mandar información.</p>
+            </li>
+            <li>
+              PUT:
+              <p>Permite reescribir un dato guardado con anterioridad.</p>
+            </li>
+            <li>
+              PATCH:
+              <p>Se utiliza para modificar un dato guardado.</p>
+            </li>
+            <li>
+              DELETE:
+              <p>
+                Borra una entrada de información que haya sido guardada con
+                anterioridad.
+              </p>
+            </li>
+          </ul>
+          <cite>
+            Mozzilla: https://developer.mozilla.org/es/docs/Web/HTTP/Methods
+          </cite>
+        </div>
+        <li>
+          ¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por
+          ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por
+          qué?
+        </li>
+        <p>
+          Se utiliza el método POST pues se está mandando información al
+          back-end que tiene que ser validada
+        </p>
+        <li>
+          ¿Qué método HTTP se utiliza cuando a través de un navegador web se
+          accede a una página a través de un URL?
+        </li>
+        <p>
+          GET: se hace una petición de consulta que regresa el archivo HTML que
+          se va a mostrar
+        </p>
+        <li>
+          Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué
+          significa esto? ¿Ocurrió algún error?
+        </li>
+        <p>
+          No ocurrión ningún error. Lo contrario, un estatus 200 significa que
+          la petición fue exitosa.
+        </p>
+        <li>
+          ¿Es responsabilidad del desarrollador corregir un sitio web si un
+          usuario reporta que intentó acceder al sitio y se encontró con un
+          error 404? ¿Por qué?
+        </li>
+        <p>
+          Si, pues el error 404 significa que al intentar conectarse con la
+          aplicación no se encontró la página a la cual intentó acceder el
+          usuario. Por ende el error está en la URL a la que se está intentando
+          redireccionar al usuario
+        </p>
+        <li>
+          ¿Es responsabilidad del desarrollador corregir un sitio web si un
+          usuario reporta que intentó acceder al sitio y se encontró con un
+          error 500? ¿Por qué?
+        </li>
+        <p>
+          No como tal ell sitio web, más bien comprobar las conecciones con el
+          servidor pues el error indica que este no pudo contestar la petición.
+        </p>
+        <li>
+          ¿Qué significa que un atributo HTML5 esté depreciado o desaprobado
+          (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén
+          desaprobados.
+        </li>
+        <p>
+          Algunos atribbutos depreciados son: < acronym > < applet > < basefont
+          >. Que significa que está desactualizado y ha sido reemplazado por
+          diferentes prácticas
+        </p>
+        <cite
+          >w3.org,
+          <a
+            href="https://www.w3.org/TR/html401/conform.html#:~:text=A%20deprecated%20element%20or%20attribute,in%20future%20versions%20of%20HTML."
+            >https://www.w3.org/TR/html401/conform.html#:~:text=A%20deprecated%20element%20or%20attribute,in%20future%20versions%20of%20HTML.</a
+          ></cite
+        >
+        <li>¿Cuáles son las diferencias principales entre HTML 4 y HTML5?</li>
+        <p>
+          HTML5 es mucho más dinámico y permite utilizar archivos multimedia de
+          forma nativa
+        </p>
+        <cite
+          >HTML vs HTML5: Conoce las diferencias cruciales entre ellos
+          <a
+            href="https://kinsta.com/es/blog/html-vs-html5/#:~:text=A%20diferencia%20de%20las%20versiones,juegos%20o%20animaciones%20con%20él."
+          >
+            https://kinsta.com/es/blog/html-vs-html5/#:~:text=A%20diferencia%20de%20las%20versiones,juegos%20o%20animaciones%20con%20él.
+          </a>
+        </cite>
+        <li>¿Qué componentes de estructura y estilo tiene una tabla?</li>
+        <p>
+          En lo personal suelo crear tablas utilizando grid para la forma de la
+          tabla que quiero crear y los datos ordenados en un arreglo de objetos
+          con los parámetros que se van a mostrar, para luego ser iterados
+          usandoo el método map.
+        </p>
+        <li>¿Cuáles son los principales controles de una forma HTML5?</li>
+        <p>
+          Los imputs en un forms permiten utiliar diferentes tipos que validan
+          los datos, como text, password, tel, date, email, number, url, etc.
+          Pero esos son los más comunes.
+        </p>
+        <li>
+          ¿Qué tanto soporte HTML5 tiene el navegador que utilizas? Puedes
+          utilizar la siguiente página para descubrirlo: http://html5test.com/
+          (Al responder la pregunta recuerda poner el navegador que utilizas)
+        </li>
+        <p>
+          Yo uso mayormente Opera, que tiene un 536 de 571 puntos en
+          <a href="https://html5test.opensuse.org"
+            >https://html5test.opensuse.org</a
+          >
+        </p>
+      </ol>
+      <section>
+        <h2>
+          Sobre el ciclo de vida y desarrollo de los sistemas de información:
+        </h2>
+
+        <ol>
+          <li>¿Cuál es el ciclo de desarrollo de sistemas de información?</li>
+          <li>¿Cuál es el ciclo de vida de los sistemas de información?</li>
+          <ul>
+            <li>Investigación</li>
+            <li>Definición de requerimientos</li>
+            <li>Diseño</li>
+            <li>Pruebas</li>
+            <li>Implementación y mantenimiento</li>
+            <span style="font-style: italic"
+              >El ciclo se repite constantemente</span
+            >
+          </ul>
+          <cite>(Blanco, Cervantes, & Fierros, s.f.)</cite>
+        </ol>
+      </section>
+    </main>
+
+    <footer>
+      <h5>Referencias:</h5>
+      <ul>
+        <li>
+          BBC News, (2019), ¿Cuál es la diferencia entre internet y la web? (y
+          por qué muchos las confunden),
+          <a
+            href="https://www.bbc.com/mundo/noticias-47538812#:~:text=Internet%20es%20una%20inmensa%20red,para%20acceder%20a%20la%20web."
+            >https://www.bbc.com/mundo/noticias-47538812#:~:text=Internet%20es%20una%20inmensa%20red,para%20acceder%20a%20la%20web.</a
+          >
+        </li>
+        <li>
+          URL (s.f.). Concepto.
+          <a href="https://concepto.de/url/">https://concepto.de/url/</a>
+        </li>
+        <li>
+          Mozilla. (s.f.). Métodos de petición HTTP.
+          <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Methods"
+            >https://developer.mozilla.org/es/docs/Web/HTTP/Methods</a
+          >
+        </li>
+        <li>
+          w3.org, (s.f.), 4 Conformance: requirements and recommendations,
+          <a
+            href="https://www.w3.org/TR/html401/conform.html#:~:text=A%20deprecated%20element%20or%20attribute,in%20future%20versions%20of%20HTML."
+            >https://www.w3.org/TR/html401/conform.html#:~:text=A%20deprecated%20element%20or%20attribute,in%20future%20versions%20of%20HTML.</a
+          >
+        </li>
+        <li>
+          Kinsta, (2021), HTML vs HTML5: Conoce las diferencias cruciales entre
+          ellos,
+          <a
+            href="https://kinsta.com/es/blog/html-vs-html5/#:~:text=A%20diferencia%20de%20las%20versiones,juegos%20o%20animaciones%20con%20él."
+            >https://kinsta.com/es/blog/html-vs-html5/#:~:text=A%20diferencia%20de%20las%20versiones,juegos%20o%20animaciones%20con%20él.</a
+          >
+        </li>
+        <li>
+          Blanco, M., Cervantes, A., & Fierros, S. (s.f.). Ciclo de vida de un
+          sistema de información.
+          <a
+            href="https://www.gestiopolis.com/ciclo-de-vida-de-un-sistema-de-informacion/"
+            >https://www.gestiopolis.com/ciclo-de-vida-de-un-sistema-de-informacion/</a
+          >
+        </li>
+      </ul>
+      <h3 style="margin-bottom: 0.3em">Editor de código utilizado: VSCode</h3>
+      <a href="https://code.visualstudio.com">https://code.visualstudio.com</a>
+    </footer>
+  </body>
+</html>
