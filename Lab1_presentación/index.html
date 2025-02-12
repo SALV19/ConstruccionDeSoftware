@@ -4,23 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Santiago Alducin Villaseñor</title>
-    <style>
-      ol li {
-        margin-top: 0.5rem;
-      }
-      ul li::before {
-        content: "- ";
-      }
-      ul li p {
-        margin-left: 1em;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body style="margin: 1rem">
-    <header>
-      <h1 style="text-decoration: underline">Santiago Alducin Villaseñor</h1>
-      <h2>A01707122</h2>
-      <h3>santialducin@gmail.com</h3>
+  <body>
+    <header class="banner">
+      <div class="content">
+        <h1>Santiago Alducin Villaseñor</h1>
+        <h2>A01707122</h2>
+        <h3>santialducin@gmail.com</h3>
+      </div>
     </header>
 
     <main>
@@ -37,7 +36,13 @@
         <cite> BBC News, 2019 </cite>
         <li>¿Cuáles son las partes de un URL?</li>
         <a
-          >protocolo://subdominio.dominio.extensión_de_dominio/ruta&parámetro=valor</a
+          ><span class="protocolo">protocolo://</span
+          ><span class="subdominio">subdominio</span>.<span class="dominio"
+            >dominio</span
+          >.<span class="extension_dominio">extensión_de_dominio</span>/<span
+            class="ruta"
+            >ruta</span
+          ><span class="parametro">?parámetro=valor</span></a
         >
         <cite>https://concepto.de/url/</cite>
         <li>
@@ -47,32 +52,32 @@
         <div>
           <ul>
             <li>
-              GET:
+              <span class="method">GET:</span>
               <p>
                 Protocolo simple poco seguro que permite consultar información
               </p>
             </li>
             <li>
-              HEAD:
+              <span class="method">HEAD:</span>
               <p>
                 Consulta similar al método GET pero que sin el cuerpo de la
                 respuesta.
               </p>
             </li>
             <li>
-              POST:
+              <span class="method">POST:</span>
               <p>Permite mandar información.</p>
             </li>
             <li>
-              PUT:
+              <span class="method">PUT:</span>
               <p>Permite reescribir un dato guardado con anterioridad.</p>
             </li>
             <li>
-              PATCH:
+              <span class="method">PATCH:</span>
               <p>Se utiliza para modificar un dato guardado.</p>
             </li>
             <li>
-              DELETE:
+              <span class="method">DELETE:</span>
               <p>
                 Borra una entrada de información que haya sido guardada con
                 anterioridad.
@@ -197,11 +202,54 @@
             <li>Diseño</li>
             <li>Pruebas</li>
             <li>Implementación y mantenimiento</li>
-            <span style="font-style: italic"
-              >El ciclo se repite constantemente</span
-            >
+            <span>El ciclo se repite constantemente</span>
           </ul>
           <cite>(Blanco, Cervantes, & Fierros, s.f.)</cite>
+        </ol>
+      </section>
+      <section>
+        <h2>CSS</h2>
+        <ol>
+          <li>
+            Como ingeniero de software ¿cuál es tu recomendación sobre el uso de
+            !important en un CSS?
+          </li>
+          <p>
+            !important sirve para sobreescribir algo declarado globalmente o
+            para que cierto valor no pueda ser sobre-escrito posteriormente al
+            modificar algo.
+          </p>
+          <li>
+            Si se pone una imagen de fondo en una página HTML, ¿por qué debe
+            escogerse con cuidado?
+          </li>
+          <p>
+            Se tiene que tener en cuenta que tan pesada es, pues afecta al
+            rendimiento, la calidad de la imagen en pantallas grandes, y cómo se
+            adapta a pantallas chicas.
+          </p>
+          <li>
+            Como ingeniero de software, ¿cuál es tu recomendación al elegir las
+            unidades de un propiedad de estilo entre %, px y pt?
+          </li>
+          <p>
+            pt la verdad nunca lo he usado, no lo veo necesario y no es
+            recomendado. En puede usarse cuando estás seguro el medio donde se
+            va a utilizar la aplicación, pero en mi preferencia prefiero
+            utilizar porcentajes pues se adaptan en cierto modo al tamaño de
+            pantallas
+          </p>
+          <li>
+            ¿Por qué el uso de una versión minimizada del CSS mejora el
+            rendimiento del sitio?
+          </li>
+          <p>
+            Comprime el texto quitando todos los espacios que pueda tener, en
+            cierto modo esto minimiza los caracteres que tiene, haciendo que sea
+            más rápido de leer para una máquina, aunque pierde comprensión
+            humana. He visto que se utiliza esta técnica en ciertas librerías de
+            estilos.
+          </p>
         </ol>
       </section>
     </main>
@@ -251,7 +299,7 @@
           >
         </li>
       </ul>
-      <h3 style="margin-bottom: 0.3em">Editor de código utilizado: VSCode</h3>
+      <h3>Editor de código utilizado: VSCode</h3>
       <a href="https://code.visualstudio.com">https://code.visualstudio.com</a>
     </footer>
   </body>
