@@ -4,11 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Las mejores plantas</title>
-    <link rel="stylesheet" href="../css/plantas.css" />
+    <!-- <link rel="stylesheet" href="../css/plantas.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+    />
   </head>
   <body>
     <h1>Plantas</h1>
-    <table>
+    <table class="container">
       <thead>
         <tr>
           <th>Tipo</th>
@@ -36,11 +40,20 @@
         </tr>
       </tfoot>
     </table>
+    <h2>Contador de números</h2>
 
-    <form id="form">
+    <form id="form" class="section">
+      <h2>Generador de tabla con números</h2>
       <input placeholder="0" type="number" name="number" />
       <button type="submit" onclick="submitForm()">Submit</button>
     </form>
+    <div id="contador_numeros" class="section"></div>
+    <div class="container">
+      <h2>Promedios</h2>
+      <section class="section" id="matrix"></section>
+      <section class="section" id="promedios"></section>
+    </div>
+    <section class="section" id="inverso"></section>
     <script src="../javascript/scripts.js"></script>
   </body>
 </html>
