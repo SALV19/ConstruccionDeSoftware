@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plantas</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="../css/lab6.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <h6>Si ves esto, estás haciendo trampa</h6>
+
+    <form class="container is-max-tablet">
+      <label class="label">Email</label>
+      <div class="control has-icons-left has-icons-right" id="email_input">
+        <input
+          type="email"
+          name="email"
+          id="email"
+          class="input"
+          placeholder="my_email@mail.com"
+        />
+        <span class="icon is-small is-left">
+          <i class="fas fa-user"></i>
+        </span>
+        <p class="help is-success hidden" id="is_available">Email permitido</p>
+        <p class="help is-danger hidden" id="is_not_available">
+          Email no valido
+        </p>
+      </div>
+      <label class="label mt-2">Password</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        class="input"
+        placeholder="*********"
+      />
+      <p class="help is-danger hidden" id="mayusculas">Mayusculas</p>
+      <p class="help is-danger hidden" id="special">Símbolo especial</p>
+      <p class="help is-danger hidden" id="numero">Falta número</p>
+      <p class="help is-danger hidden" id="long">8 o más carácteres</p>
+      <p class="help is-success hidden" id="pass">Contraseña válida!</p>
+
+      <button class="button is-link mt-4" id="registrar">Registrar</button>
+      <button class="button is-link mt-4" id="cambio">Cambiar letra</button>
+    </form>
+    <h1 class="subtitle mt-4">
+      ¿Por qué es una buena práctica usar JavaScript para checar que sean
+      válidos los inputs de las formas antes de enviar los datos al servidor?
+    </h1>
+    <p>
+      Para validar la información y decirle al usuario si algún input está mal
+      en lugar de provocar un error en el servidor al intentar guardar
+      información incorrecta
+    </p>
+    <h1 class="subtitle">
+      ¿Cómo puedes saltarte la seguridad de validaciones hechas con JavaScript?
+    </h1>
+    <p>
+      Mandando el request directamente, quitando validaciones o cambiando
+      condiciones... pero a decir verdad no creo que sea algo sencillo
+    </p>
+    <h1 class="subtitle">
+      Si te puedes saltar la seguridad de las validaciones de JavaScript,
+      entonces ¿por qué la primera pregunta dice que es una buena práctica?
+    </h1>
+    <p>
+      Facilita el proceso al usuario para ingresar la información y facilita la
+      conección entre front y back, pero también es un buen nivel de seguridad
+      pese a que se peuda saltar, ya que el usuario promedio no sabría como.
+    </p>
+
+    <main class="section">
+      <div class="grid">
+        <button class="button is-link cell" name="regar" id="boton_regar">
+          Regar
+        </button>
+        <div class="cell"><span id="imagen_menta"></span></div>
+        <div class="cell"><span id="imagen_jacaranda"></span></div>
+        <div class="cell"><span id="imagen_maqui"></span></div>
+      </div>
+      <div class="pos">
+        <h1>Hola que hace con TOP 10rem, left 4rem</h1>
+      </div>
+    </main>
+
+    <script src="../javascript/plantas.js"></script>
+  </body>
+</html>

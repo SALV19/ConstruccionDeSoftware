@@ -1,0 +1,15 @@
+body {
+  font-family: "Lucida Console", "Monaco";
+}
+
+h6 {
+  visibility: hidden
+}
+.pos {
+  position: absolute;
+  top: 40rem;
+  left: 4rem;
+}
+.hidden {
+  display: none
+}

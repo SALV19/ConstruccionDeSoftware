@@ -30,7 +30,6 @@ class Vehicle {
   }
   calculate_price() {}
 }
-
 class Car extends Vehicle {
   #tipo = "coche";
   #llantas = 4;
