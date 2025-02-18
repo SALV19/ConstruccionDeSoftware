@@ -118,21 +118,21 @@ registrar.onclick = (e) => {
 const verdana = (e) => {
   e.preventDefault();
   document.querySelector("body").style.fontFamily = "Verdana";
-  cambio.onclick = arial;
+  cambio.addEventListener("mouseover", (e) => arial(e));
 };
 const arial = (e) => {
   e.preventDefault();
   document.querySelector("body").style.fontFamily = "Arial";
-  cambio.onclick = roboto;
+  cambio.addEventListener("mouseover", (e) => roboto(e));
 };
 const roboto = (e) => {
   e.preventDefault();
   document.querySelector("body").style.fontFamily = "Roboto";
-  cambio.onclick = verdana;
+  cambio.addEventListener("mouseover", (e) => verdana(e));
 };
 
 const cambio = document.querySelector("#cambio");
-cambio.onclick = verdana;
+cambio.addEventListener("mouseover", (e) => verdana(e));
 
 // https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/some
 // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/click
