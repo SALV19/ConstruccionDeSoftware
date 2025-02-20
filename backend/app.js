@@ -30,7 +30,7 @@ arr.forEach((val) => {
   prom += val;
 });
 
-// console.log(prom / 10);
+console.log(prom / 10);
 
 const file_system = require("fs");
 const readline = require("node:readline");
@@ -45,3 +45,15 @@ rl.question(`Write something...`, (entrada) => {
   rl.close();
 });
 // https://nodejs.org/en/learn/command-line/accept-input-from-the-command-line-in-nodejs
+
+for (let i = 0; i < arr.length; i++) {
+  for (let j = 0; j < arr.length; j++) {
+    if (arr[j] > arr[i + 1]) {
+      const temp = arr[j];
+      arr[j] = arr[i + 1];
+      arr[i + 1] = temp;
+    }
+  }
+}
+
+console.log(arr);
