@@ -10,12 +10,24 @@
 //   }, a);
 // });
 
-const http = require("http");
-const server = http.createServer((request, response) => {
-  console.log(request.url);
-  response.setHeader("Content-Type", "text/html");
-  response.write("Hello there / General Kenobi");
-  response.end();
+// const http = require("http");
+// const server = http.createServer((request, response) => {
+//   console.log(request.url);
+//   response.setHeader("Content-Type", "text/html");
+//   response.write("Hello there / General Kenobi");
+//   response.end();
+// });
+
+// server.listen(3000);
+const arr = [];
+for (let i = 0; i < 10; i++) {
+  arr.push(Math.floor(Math.random() * 100));
+}
+
+let prom = 0;
+arr.forEach((val) => {
+  // console.log(val);
+  prom += val;
 });
 
-server.listen(3000);
+console.log(prom / 10);
