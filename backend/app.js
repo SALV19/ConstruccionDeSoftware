@@ -30,4 +30,18 @@ arr.forEach((val) => {
   prom += val;
 });
 
-console.log(prom / 10);
+// console.log(prom / 10);
+
+const file_system = require("fs");
+const readline = require("node:readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+rl.question(`Write something...`, (entrada) => {
+  file_system.writeFileSync("texto.txt", entrada);
+  rl.close();
+});
+// https://nodejs.org/en/learn/command-line/accept-input-from-the-command-line-in-nodejs
