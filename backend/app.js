@@ -1,5 +1,4 @@
-// const file_system = require("fs");
-
+const file_system = require("fs");
 // file_system.writeFileSync("hola.html", "Hola mi buen amigo");
 
 // const arreglo = [199, 121, 434, 12, 54, 12, 54, 65, 7];
@@ -10,15 +9,20 @@
 //   }, a);
 // });
 
-// const http = require("http");
-// const server = http.createServer((request, response) => {
-//   console.log(request.url);
-//   response.setHeader("Content-Type", "text/html");
-//   response.write("Hello there / General Kenobi");
-//   response.end();
-// });
+const http = require("http");
+const home = file_system.readFileSync(
+  "../Laboratorios/pages/home.html",
+  "utf8"
+);
 
-// server.listen(3000);
+const server = http.createServer((request, response) => {
+  console.log(request.url);
+  response.setHeader("Content-Type", "text/html");
+  response.write(home);
+  response.end();
+});
+
+server.listen(3000);
 const arr = [];
 for (let i = 0; i < 10; i++) {
   arr.push(Math.floor(Math.random() * 100));
@@ -32,7 +36,7 @@ arr.forEach((val) => {
 
 console.log(prom / 10);
 
-const file_system = require("fs");
+// const file_system = require("fs");
 const readline = require("node:readline");
 
 const rl = readline.createInterface({
