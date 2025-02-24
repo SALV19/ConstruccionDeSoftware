@@ -1,63 +1,71 @@
-const file_system = require("fs");
-// file_system.writeFileSync("hola.html", "Hola mi buen amigo");
-
-// const arreglo = [199, 121, 434, 12, 54, 12, 54, 65, 7];
-
-// arreglo.forEach((a) => {
-//   setTimeout(() => {
-//     console.log(a);
-//   }, a);
-// });
-
 const http = require("http");
-const home = file_system.readFileSync(
-  "../Laboratorios/pages/home.html",
-  "utf8"
-);
+const fs = require("fs");
+
+const header = `
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Las mejores plantas</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+    >
+  </head>
+`;
+
+const home =
+  header +
+  `
+  <body>
+  <section class="section">
+    <form action="/agregar" method="POST">
+      <label for="planta" class="label">Nombre de la planta</label>
+      <input 
+        class="input" 
+        type="text" 
+        placeholder="Orquidea" 
+        id="planta"
+        name="planta"
+      />
+      <input type="submit" value="Enviar" class="button is-info mt-2"/>
+    </form>
+  </section>
+  </body>
+</html>
+`;
+
+const error404 =
+  header +
+  `
+<body>
+<section class="section">
+  <h1 class="is-danger">Error 404:</h1>
+  <h1>La página que estás buscando no existe</h1>
+</section>
+</body>
+</html>
+`;
 
 const server = http.createServer((request, response) => {
   console.log(request.url);
-  response.setHeader("Content-Type", "text/html");
-  response.write(home);
-  response.end();
-});
-
-server.listen(3000);
-const arr = [];
-for (let i = 0; i < 10; i++) {
-  arr.push(Math.floor(Math.random() * 100));
-}
-
-let prom = 0;
-arr.forEach((val) => {
-  // console.log(val);
-  prom += val;
-});
-
-console.log(prom / 10);
-
-// const file_system = require("fs");
-const readline = require("node:readline");
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
-rl.question(`Write something...`, (entrada) => {
-  file_system.writeFileSync("texto.txt", entrada);
-  rl.close();
-});
-// https://nodejs.org/en/learn/command-line/accept-input-from-the-command-line-in-nodejs
-
-for (let i = 0; i < arr.length; i++) {
-  for (let j = 0; j < arr.length; j++) {
-    if (arr[j] > arr[i + 1]) {
-      const temp = arr[j];
-      arr[j] = arr[i + 1];
-      arr[i + 1] = temp;
-    }
+  if (
+    (request.method == "GET" && request.url == "/agregar") ||
+    request.url == "/"
+  ) {
+    response.setHeader("Content-Type", "text/html");
+    response.write(home);
+    response.end();
+  } else if (request.method == "POST" && request.url == "/agregar") {
+    response.end();
+  } else {
+    response.statusCode = 404;
+    response.setHeader("Content-Type", "text/html");
+    response.write(error404);
+    response.end();
   }
-}
+});
 
-console.log(arr);
+console.log("Server started in port: http://localhost:3000");
+server.listen(3000);
