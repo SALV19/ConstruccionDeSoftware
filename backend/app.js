@@ -32,32 +32,49 @@ const home =
       <input type="submit" value="Enviar" class="button is-info mt-2"/>
     </form>
   </section>
-  </body>
-</html>
+  
 `;
+
+const footer = `</body>
+</html>`;
 
 const error404 =
   header +
-  `
-<body>
-<section class="section">
-  <h1 class="is-danger">Error 404:</h1>
-  <h1>La página que estás buscando no existe</h1>
-</section>
-</body>
+  `<body>
+    <section class="section">
+      <h1 class="is-danger">Error 404:</h1>
+      <h1>La página que estás buscando no existe</h1>
+    </section>
+  </body>
 </html>
 `;
 
 const server = http.createServer((request, response) => {
   console.log(request.url);
+  const plantas = [];
   if (
-    (request.method == "GET" && request.url == "/agregar") ||
-    request.url == "/"
+    request.method == "GET" &&
+    (request.url == "/agregar" || request.url == "/")
   ) {
     response.setHeader("Content-Type", "text/html");
     response.write(home);
     response.end();
   } else if (request.method == "POST" && request.url == "/agregar") {
+    const datos_completos = [];
+    request.on("data", (d) => {
+      datos_completos.push(d);
+    });
+    request.on("end", () => {
+      let data = Buffer.concat(datos_completos).toString();
+      console.log(data);
+      data = data.split("=")[1];
+      console.log(data);
+      plantas.push(data);
+
+      response.setHeader("Content-Type", "text/html");
+      response.write(home);
+      response.end();
+    });
     response.end();
   } else {
     response.statusCode = 404;
