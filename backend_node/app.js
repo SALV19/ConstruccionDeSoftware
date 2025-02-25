@@ -29,8 +29,9 @@ const home =
         id="planta"
         name="planta"
       />
-      <input type="submit" value="Enviar" class="button is-info mt-2"/>
+      <input type="submit" value="Enviar" action="/otracosa" class="button is-info mt-2"/>
     </form>
+    
   </section>
   
 `;
@@ -74,6 +75,15 @@ const server = http.createServer((request, response) => {
       response.setHeader("Content-Type", "text/html");
       response.write(home);
       response.end();
+    });
+    response.end();
+  } else if (request.method == "POST" && request.url == "/otracosa") {
+    const datos_completos = [];
+    request.on("data", (d) => {
+      console.log("iuwrfhwfwpj");
+    });
+    request.on("end", () => {
+      console.log("iurhfwrofjpwef");
     });
     response.end();
   } else {
