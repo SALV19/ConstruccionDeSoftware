@@ -59,7 +59,20 @@ const plantas = [];
 router.post("/agregar", (req, res, next) => {
   console.log(req.body.planta);
   plantas.push(req.body.planta);
-  res.send(html_header + plantas + html_footer);
+  let html = html_header;
+  html += "<div class='section'>";
+  for (let p of plantas) {
+    html += `
+    <div class="card">  <div class="card-content">
+          <div class="media-content">
+            <p class="title is-4">${p}</p>
+          </div>
+        </div>
+        </div>`;
+  }
+  html += "</div>";
+  html += html_footer;
+  res.send(html);
   console.log(plantas);
 });
 
