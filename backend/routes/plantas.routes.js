@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const fs = require("fs");
 
 const html_header = `
 <!DOCTYPE html>
@@ -59,6 +60,7 @@ const plantas = [];
 router.post("/agregar", (req, res, next) => {
   console.log(req.body.planta);
   plantas.push(req.body.planta);
+  fs.appendFileSync("plantas.txt", req.body.planta);
   let html = html_header;
   html += "<div class='section'>";
   for (let p of plantas) {
