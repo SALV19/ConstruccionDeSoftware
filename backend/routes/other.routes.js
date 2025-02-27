@@ -69,7 +69,7 @@ const html1 = `<!DOCTYPE html>
       <p>Son algunas reglas de diseño UX y UI</p>
     </section>
 
-    <script src="../javascript/scripts.js"></script>
+    <script src="/js/scripts.js"></script>
   </body>
 </html>
 `;
