@@ -51,8 +51,9 @@ const html_error404 =
 </html>
 `;
 // app.get es para registrar un middleware para peticiones http:GET
+const path = require("path");
 router.get("/agregar", (req, res, next) => {
-  res.send(html_header + html_home + html_footer);
+  res.render(path.join(__dirname, "..", "views", "plantas"));
 });
 
 const plantas = [];
