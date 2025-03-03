@@ -8,5 +8,4 @@ router.post("/agregar", plantas_controller.post_agregar);
 
 router.get("/", plantas_controller.get_root)
 
-
 module.exports = router;
