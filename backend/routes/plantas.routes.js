@@ -61,7 +61,9 @@ const plantas = [];
 router.post("/agregar", (req, res, next) => {
   console.log(req.body.planta);
   plantas.push(req.body.planta);
-  fs.appendFileSync("plantas.txt", req.body.planta);
+  fs.appendFileSync("plantas.txt", req.body.planta + "\n");
+  const plantas_r = fs.readFileSync("plantas.txt")
+  console.log(plantas_r);
   let html = html_header;
   html += "<div class='section'>";
   for (let p of plantas) {
