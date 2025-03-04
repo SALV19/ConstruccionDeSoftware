@@ -1,7 +1,6 @@
 const Planta = require("../models/plantas.model")
 
 exports.get_login = (req, res, next) => {
-  console.log(req.session.isLoggedIn)
   res.render("login.ejs", {
     isLoggedIn: req.session.isLoggedIn || false,
   })
@@ -14,4 +13,10 @@ exports.post_login = (req, res, next) => {
   mi_planta.save()
 
   res.redirect("/plantas")
+}
+
+exports.get_logout = (req, res, next) => {
+  req.session.destroy(() => {
+    res.redirect("/users/login")
+  })
 }

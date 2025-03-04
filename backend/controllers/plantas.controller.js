@@ -2,7 +2,6 @@ const fs = require("fs");
 const Planta = require("../models/plantas.model");
 
 exports.get_root = (req, res, next) => {
-  console.log(req.session.isLoggedIn)
   res.render("plants", {
     plantas: Planta.fetchAll(), 
     isLoggedIn: req.session.isLoggedIn || false,
