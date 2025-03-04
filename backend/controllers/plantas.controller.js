@@ -2,6 +2,7 @@ const fs = require("fs");
 const Planta = require("../models/plantas.model");
 
 exports.get_root = (req, res, next) => {
+  console.log(req.session.username)
   res.render("plants", {plantas: Planta.fetchAll()});
 };
 
