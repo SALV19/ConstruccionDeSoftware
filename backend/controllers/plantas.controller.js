@@ -2,8 +2,11 @@ const fs = require("fs");
 const Planta = require("../models/plantas.model");
 
 exports.get_root = (req, res, next) => {
-  console.log(req.session.username)
-  res.render("plants", {plantas: Planta.fetchAll()});
+  console.log(req.session.isLoggedIn)
+  res.render("plants", {
+    plantas: Planta.fetchAll(), 
+    isLoggedIn: req.session.isLoggedIn || false
+  });
 };
 
 exports.get_agregar = (req, res, next) => {
@@ -11,8 +14,7 @@ exports.get_agregar = (req, res, next) => {
 };
 
 exports.post_agregar = (req, res, next) => {
-  console.log(req.body.planta);
-  const mi_planta = new Planta(req.body.planta);
+  const mi_planta = new Planta(req.body.username);
   mi_planta.save();
 
   res.redirect("/plantas/");

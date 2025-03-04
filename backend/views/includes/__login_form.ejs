@@ -1,16 +1,27 @@
-<section class="section">
+<section class="container is-max-tablet mt-6">
   <div class="field">
-    <form method="POST" action="/users/login" class="control has-icons-left has-icons-right">
-      <label class="label">Username</label>
+    <form method="POST" action="/users/login" class="buttons control container is-max-tablet ">
+    <label class="label">Username</label>
       <input 
-        class="input is-success" 
+        class="input is-primary" 
         type="text" 
         placeholder="Text input" 
         id="username"
         name="username"
-        value="bulma">
+        required
+        value="">
+    <label class="label">Password</label>
+      <input 
+        class="input is-primary" 
+        type="password" 
+        placeholder="Password input" 
+        id="password"
+        name="password"
+        placeholder = "*********"
+        required
+        value="">
       
-        <button type="submit">Submit</button>
+        <button type="submit" class="button is-primary mx-auto mt-4">Submit</button>
     </form>
   </div>
 </section>

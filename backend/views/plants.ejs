@@ -1,5 +1,7 @@
 <%- include ("./includes/header.ejs") %>
 <%for (let p of plantas) {%>
-  <p><%= p.nombre %></p>
+  <div class="card">
+    <p class="card-content"><%= p.nombre %></p>
+  </div>
 <%}%>
 <%- include ("./includes/footer.ejs") %>
