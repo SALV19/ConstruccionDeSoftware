@@ -31,6 +31,7 @@ app.use("/ejs", ejs_routes);
 
 app.use((req, res, next) => {
   res.status = 404;
+  console.log("error")
   res.send("ERROR: 404");
 });
 

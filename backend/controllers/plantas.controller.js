@@ -5,7 +5,8 @@ exports.get_root = (req, res, next) => {
   console.log(req.session.isLoggedIn)
   res.render("plants", {
     plantas: Planta.fetchAll(), 
-    isLoggedIn: req.session.isLoggedIn || false
+    isLoggedIn: req.session.isLoggedIn || false,
+    user: req.session.username,
   });
 };
 
