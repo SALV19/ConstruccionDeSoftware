@@ -1,7 +1,16 @@
 <%- include ("./includes/header.ejs") %>
-<%for (let p of plantas) {%>
-  <div class="card">
-    <p class="card-content is-max-tablet mt-6"><%= p.nombre %></p>
+<% if (info != "") {%>
+  <div class = "notification is-info">
+    <%= info%>
   </div>
-<%}%>
+<% } %>
+
+
+<div class="is-max-tablet fixed-grid">
+<%for (let p of plantas) {%>
+  <div class="card container is-max-tablet cell">
+    <a class="card-content" href="/plantas/<%=p.id%>"><%= p.nombre %></a>
+  </div>
+  <%}%>
+</div>
 <%- include ("./includes/footer.ejs") %>

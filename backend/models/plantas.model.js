@@ -12,6 +12,13 @@ module.exports = class Planta {
   }
   //Este método servirá para devolver los objetos del almacenamiento persistente.
   static async fetchAll() {
-    return plantas;
+    return db.execute("SELECT * FROM plantas");
+  }
+  static async fetchOne(id) {
+    return db.execute("SELECT * FROM plantas WHERE id = ?", [id]);
+  }
+  static fetch(id) {
+    if (id) return this.fetchOne(id);
+    else return this.fetchAll();
   }
 };
