@@ -1,27 +1,51 @@
 <section class="container is-max-tablet mt-6">
   <div class="field">
-    <form method="POST" action="/users/login" class="buttons control container is-max-tablet ">
-    <label class="label">Username</label>
-      <input 
-        class="input is-primary" 
-        type="text" 
-        placeholder="Text input" 
+    <form
+      method="POST"
+      action="/users/<% if (isNew) {%>signup<%} else {%>login<%} %>"
+      class="buttons control container is-max-tablet"
+    >
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+
+      <label class="label">Username</label>
+      <input
+        class="input is-primary"
+        type="text"
+        placeholder="Text input"
         id="username"
         name="username"
         required
-        value="">
-    <label class="label">Password</label>
-      <input 
-        class="input is-primary" 
-        type="password" 
-        placeholder="Password input" 
+        value=""
+      />
+      <label class="label">Password</label>
+      <% if (error) { %>
+      <input
+        class="input is-danger"
+        type="password"
+        placeholder="Password input"
         id="password"
         name="password"
-        placeholder = "*********"
+        placeholder="*********"
         required
-        value="">
-      
-        <button type="submit" class="button is-primary mx-auto mt-4">Submit</button>
+        value=""
+      />
+      <p class="help is-danger">Wrong password</p>
+      <% }else{ %>
+      <input
+        class="input is-primary"
+        type="password"
+        placeholder="Password input"
+        id="password"
+        name="password"
+        placeholder="*********"
+        required
+        value=""
+      />
+      <% } %>
+
+      <button type="submit" class="button is-primary mx-auto mt-4">
+        Submit
+      </button>
     </form>
   </div>
 </section>
