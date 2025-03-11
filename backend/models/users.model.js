@@ -31,4 +31,19 @@ module.exports = class Usuario {
     if (username) return this.fetchOne(username);
     else return this.fetchAll();
   }
+
+  static getPermisos(username) {
+    db.execute(
+      `
+        SELECT DISTINCT p.nombre
+        FROM privilegios p, posee po, roles r, tiene t, usuario u
+        WHERE p.id = po.id_privilegio 
+        AND po.id_rol = r.id 
+        AND r.id = t.id_rol
+        AND t.id_usuario = u.id
+        AND u.nombre = ?
+      `,
+      [username]
+    );
+  }
 };

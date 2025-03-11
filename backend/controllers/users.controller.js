@@ -28,6 +28,7 @@ exports.post_login = (req, res, next) => {
                 isLoggedIn: req.session.isLoggedIn || false,
                 isNew: false,
                 error: "wrong_password",
+                csrfToken: req.csrfToken(),
               });
             }
           })
@@ -52,6 +53,7 @@ exports.get_signup = (req, res, next) => {
     isLoggedIn: req.session.isLoggedIn || false,
     isNew: true,
     error: false,
+    csrfToken: req.csrfToken(),
   });
 };
 
