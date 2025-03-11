@@ -33,15 +33,16 @@ module.exports = class Usuario {
   }
 
   static getPermisos(username) {
-    db.execute(
+    console.log(username);
+    return db.execute(
       `
-        SELECT DISTINCT p.nombre
-        FROM privilegios p, posee po, roles r, tiene t, usuario u
+        SELECT DISTINCT p.nombre, u.username
+        FROM privilegios p, posee po, roles r, tiene t, usuarios u
         WHERE p.id = po.id_privilegio 
         AND po.id_rol = r.id 
         AND r.id = t.id_rol
         AND t.id_usuario = u.id
-        AND u.nombre = ?
+        
       `,
       [username]
     );

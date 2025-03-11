@@ -18,11 +18,17 @@ exports.post_login = (req, res, next) => {
           .compare(req.body.password, rows[0].password)
           .then((doMatch) => {
             if (doMatch) {
-              req.session.isLoggedIn = true;
-              req.session.username = req.body.username;
-              return req.session.save((err) => {
-                res.redirect("/plantas");
-              });
+              Usuario.getPermisos(req.body.username)
+                .then(([privilegios, fieldData]) => {
+                  req.session.privilegios = privilegios;
+                  req.session.isLoggedIn = true;
+                  req.session.user_id = rows[0].id;
+                  req.session.username = req.body.username;
+                  return req.session.save((err) => {
+                    res.redirect("/plantas");
+                  });
+                })
+                .catch((e) => console.log(e));
             } else {
               res.render("login", {
                 isLoggedIn: req.session.isLoggedIn || false,

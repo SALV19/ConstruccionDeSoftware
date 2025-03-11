@@ -1,5 +1,6 @@
 const fs = require("fs");
 const Planta = require("../models/plantas.model");
+const Jardin = require("../models/jardin.model");
 
 exports.get_root = (req, res, next) => {
   const mensaje = req.session.info || "";
@@ -7,15 +8,14 @@ exports.get_root = (req, res, next) => {
     req.session.info = "";
   }
 
-  Planta.fetch(req.params.id)
+  Jardin.fetchAll(req.session.user_id)
     .then(([rows, fieldData]) => {
-      console.log(fieldData);
-      console.log(rows);
       res.render("plants", {
         plantas: rows,
         isLoggedIn: req.session.isLoggedIn || false,
         user: req.session.username,
         info: mensaje,
+        csrfToken: req.csrfToken(),
       });
     })
     .catch((error) => {
@@ -24,14 +24,21 @@ exports.get_root = (req, res, next) => {
 };
 
 exports.get_agregar = (req, res, next) => {
-  res.render("agregar_plantas", {
-    isLoggedIn: req.session.isLoggedIn || false,
-  });
+  Planta.fetchAll()
+    .then(([plantas, fieldData]) => {
+      res.render("agregar_plantas", {
+        isLoggedIn: req.session.isLoggedIn || false,
+        user: req.session.username,
+        csrfToken: req.csrfToken(),
+        privilegios: req.session.privilegios || [],
+        plantas: plantas,
+      });
+    })
+    .catch((e) => console.log(e));
 };
 
 exports.post_agregar = async (req, res, next) => {
-  console.log(req.body.planta);
-  const mi_planta = new Planta(req.body.planta);
+  const mi_planta = new JARDIN(req.body.planta);
   mi_planta
     .save()
     .then(() => {

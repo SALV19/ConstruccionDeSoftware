@@ -1,6 +1,8 @@
 <body>
   <section class="section">
     <form action="/plantas/agregar" method="POST">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+
       <label for="planta" class="label">Nombre de la planta</label>
       <input
         class="input"
@@ -9,6 +11,11 @@
         id="planta"
         name="planta"
       />
+      <!-- <div>
+        <select name="" id="">
+          <% for planta in plantas %>
+        </select>
+      </div> -->
       <input
         type="submit"
         value="Enviar"
