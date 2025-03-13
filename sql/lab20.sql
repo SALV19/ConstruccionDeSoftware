@@ -129,7 +129,7 @@ AND Py.numero IN (
 -- Nombre del material, cantidad de veces entregados y total del costo de dichas entregas por 
 -- material de todos los proyectos.
 
-SELECT m.descripcion, SUM(e.cantidad), SUM(e.cantidad * m.precio)
+SELECT m.descripcion, SUM(e.cantidad) as 'Cantidad entregada', SUM(e.cantidad * m.precio) as 'Preciio total'
 FROM materiales m, entregan e
 WHERE m.clave = e.clave
 GROUP BY m.descripcion
