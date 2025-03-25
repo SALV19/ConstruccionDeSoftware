@@ -11,12 +11,13 @@ app.use(
   session({
     secret:
       "ewohgwrfhwrhgwriojfwefewpfohewfwgfwohreugerhgoierghrofhlñfherofhrfhriogerpguiwrhfoihwefhwrg",
-      resave: false,
-      saveUninitialized: false,
-    })
-  );
-  
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 const multer = require("multer");
 
@@ -34,7 +35,6 @@ app.use(multer({ storage: fileStorage }).single("file"));
 const csrf = require("csurf");
 const csrfProtection = csrf();
 app.use(csrfProtection);
-
 
 app.use(express.static(path.join(__dirname, "public")));
 

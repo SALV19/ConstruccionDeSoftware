@@ -24,7 +24,7 @@ exports.get_root = (req, res, next) => {
 };
 
 exports.get_agregar = (req, res, next) => {
-  console.log(req.file);
+  console.log(req.body.file);
   Planta.fetchAll()
     .then(([plantas, fieldData]) => {
       res.render("agregar_plantas", {

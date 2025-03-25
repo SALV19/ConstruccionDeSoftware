@@ -1,16 +1,33 @@
-<%- include ("./includes/header.ejs") %>
-<% if (info != "") {%>
-  <div class = "notification is-info">
-    <%= info%>
-  </div>
+<%- include ("./includes/header.ejs") %> <% if (info != "") {%>
+<div class="notification is-info"><%= info%></div>
 <% } %>
 
-
+<label class="label" for="buscar">Buscar</label>
+<input
+  id="buscar"
+  name="buscar"
+  type="text"
+  class="input is-info"
+  placeholder="Tulipan"
+/>
 <div class="is-max-tablet fixed-grid">
-<%for (let p of plantas) {%>
+  <%for (let p of plantas) {%>
   <div class="card container is-max-tablet cell">
     <a class="card-content" href="/plantas/<%=p.id%>"><%= p.nombre %></a>
   </div>
   <%}%>
 </div>
 <%- include ("./includes/footer.ejs") %>
+
+<script>
+  const buscar = document.querySelector("#buscar");
+  buscar.onkeyup = () => {
+    fetch(`/plantas/buscar/${buscar.value}`, {
+      mehtod: 'GET'
+    })
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => console.log(error));
+  };
+</script>
