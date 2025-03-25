@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js -e js,ejs"
+    "start": "nodemon app.js -e js, ejs"
   },
   "author": "Santiago Alducin Villaseñor",
   "license": "MIT",
@@ -14,7 +14,8 @@
     "body-parser": "^1.20.3",
     "csurf": "^1.11.0",
     "ejs": "^3.1.10",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"

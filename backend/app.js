@@ -11,16 +11,30 @@ app.use(
   session({
     secret:
       "ewohgwrfhwrhgwriojfwefewpfohewfwgfwohreugerhgoierghrofhlñfherofhrfhriogerpguiwrhfoihwefhwrg",
-    resave: false,
-    saveUninitialized: false,
-  })
-);
-
+      resave: false,
+      saveUninitialized: false,
+    })
+  );
+  
 app.use(bodyParser.urlencoded({ extended: false }));
+
+const multer = require("multer");
+
+const fileStorage = multer.diskStorage({
+  destination: (request, file, callback) => {
+    callback(null, "public/uploads");
+  },
+  filename: (request, file, callback) => {
+    callback(null, new Date().getMilliseconds() + file.originalname);
+  },
+});
+
+app.use(multer({ storage: fileStorage }).single("file"));
 
 const csrf = require("csurf");
 const csrfProtection = csrf();
 app.use(csrfProtection);
+
 
 app.use(express.static(path.join(__dirname, "public")));
 

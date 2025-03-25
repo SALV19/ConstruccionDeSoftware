@@ -1,6 +1,6 @@
 <body>
   <section class="section">
-    <form action="/plantas/agregar" method="POST">
+    <form action="/plantas/agregar" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
 
       <label for="planta" class="label">Nombre de la planta</label>
@@ -11,11 +11,25 @@
         id="planta"
         name="planta"
       />
-      <!-- <div>
-        <select name="" id="">
-          <% for planta in plantas %>
-        </select>
-      </div> -->
+      <br />
+      <br />
+      <div class="file">
+        <label class="file-label">
+          <input
+            class="file-input"
+            type="file"
+            id="image"
+            name="image"
+            accept=".jpg, .png, .jpeg, .gif"
+          />
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label"> Choose a file… </span>
+          </span>
+        </label>
+      </div>
       <input
         type="submit"
         value="Enviar"

@@ -24,6 +24,7 @@ exports.get_root = (req, res, next) => {
 };
 
 exports.get_agregar = (req, res, next) => {
+  console.log(req.file);
   Planta.fetchAll()
     .then(([plantas, fieldData]) => {
       res.render("agregar_plantas", {
@@ -38,7 +39,7 @@ exports.get_agregar = (req, res, next) => {
 };
 
 exports.post_agregar = async (req, res, next) => {
-  const mi_planta = new JARDIN(req.body.planta);
+  const mi_planta = new Jardin(req.body.planta);
   mi_planta
     .save()
     .then(() => {
