@@ -9,6 +9,9 @@ router.get("/agregar", is_auth, plantas_controller.get_agregar);
 router.get("/add", is_auth, plantas_controller.get_agregar);
 router.post("/agregar", is_auth, plantas_controller.post_agregar);
 
+router.get('/buscar/:valor', is_auth, canView, plantas_controller.get_buscar)
+router.get('/buscar/', is_auth, canView, plantas_controller.get_buscar)
+
 router.get("/:id", is_auth, canView, plantas_controller.get_root);
 router.get("/", is_auth, canView, plantas_controller.get_root);
 

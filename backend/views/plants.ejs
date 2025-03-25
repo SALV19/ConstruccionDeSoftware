@@ -10,23 +10,38 @@
   class="input is-info"
   placeholder="Tulipan"
 />
-<div class="is-max-tablet fixed-grid">
-  <%for (let p of plantas) {%>
-  <div class="card container is-max-tablet cell">
-    <a class="card-content" href="/plantas/<%=p.id%>"><%= p.nombre %></a>
-  </div>
-  <%}%>
-</div>
-<%- include ("./includes/footer.ejs") %>
+<div id="container_plantas">
 
-<script>
-  const buscar = document.querySelector("#buscar");
-  buscar.onkeyup = () => {
+  <div class="is-max-tablet fixed-grid">
+    <%for (let p of plantas) {%>
+      <div class="card container is-max-tablet cell">
+        <a class="card-content" href="/plantas/<%=p.id%>"><%= p.nombre %></a>
+      </div>
+      <%}%>
+    </div>
+    
+  </div>
+  <%- include ("./includes/footer.ejs") %>
+    
+    <script>
+      const buscar = document.querySelector("#buscar");
+      buscar.onkeyup = () => {
     fetch(`/plantas/buscar/${buscar.value}`, {
       mehtod: 'GET'
     })
       .then((result) => {
-        console.log(result);
+        return result.json()
+      })
+      .then((data) => {
+        // console.log(data)
+        const contaienr = document.getElementById('container_plantas');
+        container.innerHTML = ``
+        let html = '<div class="is-max-tablet fixed-grid">'
+        for (let planta of data.plantas) {
+          html += `<div class="card container is-max-tablet cell">
+                    <a class="card-content" href="/plantas/${planta.imagen}">${planta.nombre}</a>
+                  </div>`
+        }
       })
       .catch((error) => console.log(error));
   };

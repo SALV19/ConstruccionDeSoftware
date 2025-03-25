@@ -24,4 +24,14 @@ module.exports = class Jardin {
       [user_id]
     );
   }
+  static find(user_id, valor) {
+    return db.execute(
+      `SELECT p.id, p.nombre, p.created_at
+      FROM jardin j, plantas p 
+      WHERE j.id_planta = p.id
+      AND  j.id_usuario = ?
+      AND p.nombre LIKE ?`,
+      [user_id, `%${valor}%`]
+    );
+  }
 };

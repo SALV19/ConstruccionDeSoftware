@@ -54,3 +54,11 @@ exports.post_agregar = async (req, res, next) => {
       return 500;
     });
 };
+
+exports.get_buscar = async (request, response) => {
+  Jardin.find(req.session.user_id, request.params.valor).then(([rows, fielldData]) => {
+    response.status(200).json({plantas: rows})
+  }).catch(error => {
+    response.status(500).json({message: "Servidor en peligro de extinción"})
+  })
+}
